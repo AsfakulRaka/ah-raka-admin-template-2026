@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
+@import "tailwindcss";
+:root {
+  --theme-primary: #faaf39;
+  --theme-background: #f0f4f7;
+  --theme-surface: #ffffff;
+  --theme-text: #4a5565;
+  --theme-border: #e5e7eb;
+  --theme-menu-hover: #f1f5f9;
+}
+html.dark {
+  --theme-primary: #faaf39;
+  --theme-background: #0b1220;
+  --theme-surface: #0f172a;
+  --theme-text: #ffffff;
+  --theme-border: #1e2939;
+  --theme-menu-hover: #11213a;
+}
+@theme {
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-background: var(--theme-background);
+  --color-theme-surface: var(--theme-surface);
+  --color-theme-text: var(--theme-text);
+  --color-theme-border: var(--theme-border);
+  --color-theme-menu-hover: var(--theme-menu-hover);
+
+  --font-google-sans-flex: "Google Sans Flex", sans-serif;
+  --font-anta: "Anta", sans-serif;
+}
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply m-0 box-border p-0;
+  }
+  html {
+    @apply scroll-smooth text-sm;
+  }
+  body {
+    @apply font-google-sans-flex text-theme-text bg-theme-background text-base leading-normal tracking-normal;
+  }
+  h1 {
+    @apply text-5xl font-bold;
+  }
+  h2 {
+    @apply text-4xl font-bold;
+  }
+  h3 {
+    @apply text-3xl font-semibold;
+  }
+  h4 {
+    @apply text-2xl font-semibold;
+  }
+  h5 {
+    @apply text-xl font-medium;
+  }
+  h6 {
+    @apply text-lg font-medium;
+  }
+  p {
+    @apply text-base leading-7;
+  }
+}
+@layer components {
+}
+@layer utilities {
+  .active {
+    @apply bg-theme-primary hover:bg-theme-primary font-semibold text-white;
+  }
+  /* Base scrollbar */
+  .scrollbar-custom {
+    overflow: auto;
+  }
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-primary);
+    border-radius: 10px;
+  }
+  /* Firefox only */
+  @supports (-moz-appearance: none) {
+    .scrollbar-custom {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-brand-primary) transparent;
+    }
+  }
+}
